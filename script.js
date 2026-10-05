@@ -3,6 +3,11 @@ const namaInput = document.getElementById("nama");
 const btnAdd = document.getElementById("btnAdd");
 const dataMahasiswa = document.getElementById("dataMahasiswa");
 
+// Menampilkan data yang sudah tersimpan
+let mahasiswa = JSON.parse(localStorage.getItem("mahasiswa")) || [];
+
+tampilkanData();
+
 btnAdd.addEventListener("click", function() {
 
     const nim = nimInput.value;
@@ -13,19 +18,41 @@ btnAdd.addEventListener("click", function() {
         return;
     }
 
-    const row = document.createElement("tr");
+    // Masukkan data baru
+    mahasiswa.push({
+        nim: nim,
+        nama: nama
+    });
 
-    const kolomNim = document.createElement("td");
-    kolomNim.textContent = nim;
+    // Simpan ke localStorage
+    localStorage.setItem("mahasiswa", JSON.stringify(mahasiswa));
 
-    const kolomNama = document.createElement("td");
-    kolomNama.textContent = nama;
+    // Tampilkan data
+    tampilkanData();
 
-    row.appendChild(kolomNim);
-    row.appendChild(kolomNama);
-
-    dataMahasiswa.appendChild(row);
-
+    // Kosongkan input
     nimInput.value = "";
     namaInput.value = "";
 });
+
+function tampilkanData() {
+
+    // Kosongkan tabel terlebih dahulu
+    dataMahasiswa.innerHTML = "";
+
+    mahasiswa.forEach(function(data) {
+
+        const row = document.createElement("tr");
+
+        const kolomNim = document.createElement("td");
+        kolomNim.textContent = data.nim;
+
+        const kolomNama = document.createElement("td");
+        kolomNama.textContent = data.nama;
+
+        row.appendChild(kolomNim);
+        row.appendChild(kolomNama);
+
+        dataMahasiswa.appendChild(row);
+    });
+}
