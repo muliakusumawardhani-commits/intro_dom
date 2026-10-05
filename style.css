@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+input {
+    padding: 8px;
+    width: 300px;
+}
+
+button {
+    width: 70px;
+    padding: 8px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

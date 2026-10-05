@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Input Data Mahasiswa</h2>
+
+        <div class="form">
+            <label>NIM</label>
+            <input type="text" id="nim">
+
+            <label>Nama</label>
+            <input type="text" id="nama">
+
+            <button id="btnAdd">ADD</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>NAMA</th>
+                </tr>
+            </thead>
+
+            <tbody id="dataMahasiswa">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
